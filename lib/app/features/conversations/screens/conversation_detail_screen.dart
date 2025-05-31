@@ -11,9 +11,9 @@ class ConversationDetailScreen extends StatefulWidget {
   final Conversation conversation;
 
   const ConversationDetailScreen({
-    super.key,
+    Key? key,
     required this.conversation,
-  });
+  }) : super(key: key);
 
   @override
   State<ConversationDetailScreen> createState() => _ConversationDetailScreenState();
