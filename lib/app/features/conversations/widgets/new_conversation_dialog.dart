@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NewConversationDialog extends StatefulWidget {
-  const NewConversationDialog({super.key});
+  const NewConversationDialog({Key? key}) : super(key: key);
 
   @override
   State<NewConversationDialog> createState() => _NewConversationDialogState();

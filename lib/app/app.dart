@@ -6,7 +6,8 @@ import 'features/conversations/repositories/conversation_repository.dart';
 import 'features/conversations/screens/conversation_list_screen.dart';
 
 class App extends StatelessWidget {
-  const App({super.key});
+  // Remove `super.key` for Flutter 2.x
+  const App();
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +15,13 @@ class App extends StatelessWidget {
       create: (context) => ConversationRepository(),
       child: BlocProvider(
         create: (context) => ConversationBloc(
-          conversationRepository: RepositoryProvider.of<ConversationRepository>(context),
+          conversationRepository:
+              RepositoryProvider.of<ConversationRepository>(context),
         )..add(LoadConversations()),
         child: MaterialApp(
           title: 'Messagerie',
           theme: ThemeData(
-            primarySwatch: Colors.blue,
+            primarySwatch: Colors.blue, // Material 2 compatible
           ),
           home: const ConversationListScreen(),
         ),

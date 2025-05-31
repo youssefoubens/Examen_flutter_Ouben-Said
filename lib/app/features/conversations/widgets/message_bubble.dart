@@ -6,11 +6,12 @@ class MessageBubble extends StatelessWidget {
   final Message message;
   final bool isMe;
 
+  // Removed `super.key` for older Dart versions
   const MessageBubble({
-    super.key,
+    Key? key,
     required this.message,
     required this.isMe,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +37,8 @@ class MessageBubble extends StatelessWidget {
               decoration: BoxDecoration(
                 color: isMe ? Theme.of(context).primaryColor : Colors.grey[200],
                 borderRadius: BorderRadius.only(
-                  topLeft: const Radius.circular(16),
-                  topRight: const Radius.circular(16),
+                  topLeft: Radius.circular(16),
+                  topRight: Radius.circular(16),
                   bottomLeft: Radius.circular(isMe ? 16 : 4),
                   bottomRight: Radius.circular(isMe ? 4 : 16),
                 ),

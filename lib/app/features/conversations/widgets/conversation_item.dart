@@ -4,12 +4,13 @@ import '../models/conversation.dart';
 class ConversationItem extends StatelessWidget {
   final Conversation conversation;
   final VoidCallback onTap;
+  final Key? key;
 
   const ConversationItem({
-    super.key,
+    this.key,
     required this.conversation,
     required this.onTap,
-  });
+  }) : super(key: key); // explicitly pass to super for Flutter 2.x
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +26,12 @@ class ConversationItem extends StatelessWidget {
       ),
       trailing: conversation.unreadCount > 0
           ? CircleAvatar(
-        radius: 12,
-        child: Text(
-          conversation.unreadCount.toString(),
-          style: const TextStyle(fontSize: 12),
-        ),
-      )
+              radius: 12,
+              child: Text(
+                conversation.unreadCount.toString(),
+                style: const TextStyle(fontSize: 12),
+              ),
+            )
           : null,
       onTap: onTap,
     );

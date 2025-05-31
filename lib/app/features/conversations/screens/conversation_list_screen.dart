@@ -8,7 +8,8 @@ import '../widgets/conversation_item.dart';
 import '../widgets/new_conversation_dialog.dart';
 
 class ConversationListScreen extends StatelessWidget {
-  const ConversationListScreen({super.key});
+  // Removed super.key for older Flutter
+  const ConversationListScreen();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,7 @@ class ConversationListScreen extends StatelessWidget {
                 return ConversationItem(
                   conversation: conversation,
                   onTap: () {
-                    context.read<ConversationBloc>().add(
+                    BlocProvider.of<ConversationBloc>(context).add(
                       SelectConversation(conversation.id),
                     );
                     Navigator.push(
@@ -57,7 +58,7 @@ class ConversationListScreen extends StatelessWidget {
             builder: (context) => const NewConversationDialog(),
           );
           if (contactName != null && contactName.isNotEmpty) {
-            context.read<ConversationBloc>().add(
+            BlocProvider.of<ConversationBloc>(context).add(
               StartNewConversation(contactName),
             );
           }

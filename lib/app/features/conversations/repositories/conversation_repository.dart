@@ -12,13 +12,13 @@ class ConversationRepository {
     Conversation(
       id: '1',
       contactName: 'Bonjour loubna',
-      lastMessage: 'Salut ! Comment ça va ?',
+      lastMessage: 'Salut ?',
       timestamp: DateTime.now().subtract(const Duration(minutes: 5)),
       unreadCount: 2,
     ),
     Conversation(
       id: '2',
-      contactName: 'mourad ouammouu',
+      contactName: 'Youssef Ouben Said',
       lastMessage: 'À demain pour la réunion',
       timestamp: DateTime.now().subtract(const Duration(hours: 1)),
       unreadCount: 0,
